@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelSceneUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void NextLevelAction()
     {
-        
+        string currentLevelName = SceneManager.GetActiveScene().name;
+
+        int id =  int.Parse(currentLevelName.Replace(Loader.Scene.Level.ToString(), ""));
+
+
+        Loader.LoadLevel(id+1);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void MainMenuAction()
     {
-        
+        Loader.Load(Loader.Scene.MainMenu);
     }
 }

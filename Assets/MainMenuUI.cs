@@ -8,6 +8,6 @@ public class MainMenuUI : MonoBehaviour
     public void PlayButtonAction()
     {
         //Debug.Log("click");
-        Loader.Load(Loader.Scene.Level1);
+        Loader.LoadLevel(1);
     }
 }
