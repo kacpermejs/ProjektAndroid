@@ -19,7 +19,7 @@ public class TouchHexagon : Goal
     {
         gameEnded = true;
         gameWonCanvas.SetActive(true);
-        Time.timeScale = 0;
+        Time.timeScale = 0.2f;
     }
 
     public override void DrawHUD()
