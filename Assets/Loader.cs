@@ -48,6 +48,20 @@ public static class Loader
         SceneManager.LoadScene(Scene.LoadingScreen.ToString());
     }
 
+    public static void LoadLevelNoLoadingScreen(int num)
+    {
+        string name = Scene.Level.ToString() + num;
+
+        if (num <= LastLevelId && num > 0)
+        {
+            SceneManager.LoadScene(name);
+        }
+        else
+        {
+            SceneManager.LoadScene(Scene.MainMenu.ToString());
+        }
+    }
+
     public static void LoaderCallback()
     {
         if(onLoaderCallback != null)

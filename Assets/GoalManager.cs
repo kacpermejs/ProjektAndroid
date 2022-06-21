@@ -9,7 +9,6 @@ public class GoalManager : MonoBehaviour
     void Awake()
     {
         goals = GetComponentsInParent<Goal>();
-        Debug.Log("TUTAJ");
     }
 
     void OnGUI()

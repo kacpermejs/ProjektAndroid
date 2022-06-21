@@ -8,7 +8,6 @@ public class HexagonTrigger : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("TUTAJ");
         if (string.Equals(collision.tag, "Player"))
             goalScript.HexagonsTouched++;
     }
