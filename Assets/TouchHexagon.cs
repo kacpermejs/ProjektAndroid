@@ -7,9 +7,6 @@ public class TouchHexagon : Goal
     public int HexagonsTouched = 0;
     public int HexagonsRequired = 2;
 
-    public GameObject gameWonCanvas;
-    public bool gameEnded = false;
-
     private void Start()
     {
         Time.timeScale = 1;
@@ -17,9 +14,7 @@ public class TouchHexagon : Goal
 
     public override void Complete()
     {
-        gameEnded = true;
-        gameWonCanvas.SetActive(true);
-        Time.timeScale = 0.2f;
+        
     }
 
     public override void DrawHUD()

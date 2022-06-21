@@ -6,9 +6,16 @@ public class GoalManager : MonoBehaviour
 {
     public Goal[] goals;
 
+    private int GoalsRemaining = -1;
+
+    public GameObject gameWonCanvas;
+
+    private bool GameEnded = false;
+
     void Awake()
     {
         goals = GetComponentsInParent<Goal>();
+        GoalsRemaining = goals.Length;
     }
 
     void OnGUI()
@@ -21,14 +28,26 @@ public class GoalManager : MonoBehaviour
 
     void Update()
     {
-        foreach (var goal in goals)
+        if(!GameEnded)
         {
-            if (goal.IsAchieved())
+            foreach (var goal in goals)
             {
-                goal.Complete();
-                Destroy(goal);
+                if (goal.IsAchieved())
+                {
+                    GoalsRemaining--;
+                    goal.Complete();
+                    Destroy(goal);
+                }
+            }
+            if (GoalsRemaining <= 0)
+            {
+                GameEnded = true;
+                gameWonCanvas.SetActive(true);
+                Time.timeScale = 0.2f;
             }
         }
     }
+
+
 }
 
